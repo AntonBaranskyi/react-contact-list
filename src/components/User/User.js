@@ -1,10 +1,11 @@
 import React from "react";
 
-const User = ({ users }) => {
+const User = ({ users, plusInvitedUser, togglePlus }) => {
   return (
     <>
       {users &&
         users.map((user, i) => {
+          
           return (
             <li key={i}>
               <div>
@@ -19,7 +20,14 @@ const User = ({ users }) => {
                   </p>
                 </div>
               </div>
-              <img className="action" src="/assets/plus.svg" alt="Action" />
+              <div
+                onClick={() => {
+                  plusInvitedUser();
+                  
+                }}
+              >
+                <img className="action" src={`/assets/plus.svg`} alt="Action" />
+              </div>
             </li>
           );
         })}

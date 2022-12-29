@@ -4,9 +4,9 @@ const Search = ({ updateUserTerm }) => {
   const [searchValue, setSearchValue] = useState("");
 
   const getSearchData = (e) => {
-    let target = e.target.value;
+    let target = (e.target.value).toLowerCase();
     setSearchValue(target);
-    updateUserTerm(searchValue);
+    updateUserTerm(target);
   };
 
   return (
@@ -16,9 +16,7 @@ const Search = ({ updateUserTerm }) => {
       </svg>
       <input
         value={searchValue}
-        onChange={(e) => {
-          getSearchData(e);
-        }}
+        onChange={getSearchData}
         type="text"
         placeholder="Найти пользователя..."
       />
